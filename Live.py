@@ -1,6 +1,9 @@
 def welcome(name):
-    return f'Hello {name} and welcome to the World of Games (WoG).' \
-           f'Here you can find many cool games to play.'
+    if name != '':
+        print(f'Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.')
+    else:
+        name = input("What is your name?")
+        welcome(name)
 
 
 def load_game():
@@ -12,11 +15,15 @@ def load_game():
 Enter your choice: """)
 
     if games.isdigit() and int(games) in range(1, 4):
-        difficulty = input("Please choose game difficulty from 1 to 5:")
-        if difficulty.isdigit() and int(difficulty) in range(1, 6):
-            print(games, difficulty)
-            return games, difficulty
-        else:
-            print('Nope')
+        difficulty = input('Please choose game difficulty from 1 to 5:')
+
+        def choose_difficulty(d):
+            if d.isdigit() and int(d) in range(1, 6):
+                return games, d
+            else:
+                d = input('Please choose game difficulty from 1 to 5:')
+                choose_difficulty(d)
+
+        choose_difficulty(difficulty)
     else:
         load_game()
