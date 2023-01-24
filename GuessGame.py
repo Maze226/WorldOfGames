@@ -1,14 +1,25 @@
-def generate_number():
-    # some code here
+import random
+import re
 
 
-def get_guess_from_user():
-    # some code here
+def generate_number(diff):
+    secret_number = random.randint(1, int(diff))
+    return secret_number
 
 
-def compare_results():
-    # some code here
+def get_guess_from_user(diff):
+    guess = input(f'guess a number from 1 to {diff}:')
+    while re.match(r"^(?![1-{}]$)|^$".format(diff), guess):
+        guess = input(f'guess a number from 1 to {diff}:')
+    return guess
 
 
-def play():
-    # some code here
+def compare_results(guess, secret_number):
+    if guess == secret_number:
+        return True
+    else:
+        return False
+
+
+def play(diff):
+    return compare_results(generate_number(diff), get_guess_from_user(diff))

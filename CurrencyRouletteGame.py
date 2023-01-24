@@ -1,10 +1,10 @@
 def get_money_interval():
-    # some code here
+    pass
 
 
 def get_guess_from_user():
-    # some code here
+    pass
 
 
 def play():
-    # some code here
+    pass

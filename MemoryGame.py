@@ -1,14 +1,14 @@
 def generate_sequence():
-    # some code here
+    pass
 
 
 def get_list_from_user():
-    # some code here
+    pass
 
 
 def is_list_equal():
-    # some code here
+    pass
 
 
 def play():
-    # some code here
+    pass
