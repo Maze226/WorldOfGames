@@ -11,7 +11,7 @@ def get_guess_from_user(diff):
     guess = input(f'guess a number from 1 to {diff}:')
     while re.match(r"^(?![1-{}]$)|^$".format(diff), guess):
         guess = input(f'guess a number from 1 to {diff}:')
-    return guess
+    return int(guess)
 
 
 def compare_results(guess, secret_number):
