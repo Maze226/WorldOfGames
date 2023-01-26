@@ -31,4 +31,4 @@ def is_list_equal(generated_list, users_list):
 
 
 def play(diff):
-    print(is_list_equal(generate_sequence(diff), get_list_from_user(diff)))
+    return is_list_equal(generate_sequence(diff), get_list_from_user(diff))
