@@ -19,18 +19,22 @@ def load_game():
     2. Guess Game - guess a number and see if you chose like the computer.
     3. Currency Roulette - try and guess the value of a random amount of USD in ILS.
 Enter your choice: """)
+    while re.match(r"^(?![1-3]$)|^$", games):
+        games = input("""Please choose a game to play:
+            1. Memory Game - a sequence of numbers will appear for 1 second and you have to
+               guess it back.
+            2. Guess Game - guess a number and see if you chose like the computer.
+            3. Currency Roulette - try and guess the value of a random amount of USD in ILS.
+        Enter your choice: """)
 
-    if games.isdigit() and int(games) in range(1, 4):
+    difficulty = input('Please choose game difficulty from 1 to 5:')
+
+    while re.match(r"^(?![1-5]$)|^$", difficulty):
         difficulty = input('Please choose game difficulty from 1 to 5:')
 
-        while re.match(r"^(?![1-5]$)|^$", difficulty):
-            difficulty = input('Please choose game difficulty from 1 to 5:')
-    else:
-        load_game()
-
     if games == '1':
-        MemoryGame.play(difficulty)
+        print(MemoryGame.play(int(difficulty)))
     elif games == '2':
-        print(GuessGame.play(difficulty))
+        print(GuessGame.play(int(difficulty)))
     elif games == '3':
-        CurrencyRouletteGame.play(difficulty)
+        print(CurrencyRouletteGame.play(int(difficulty)))
