@@ -10,9 +10,7 @@ def get_money_interval(difficulty):
     res = req.json()
     convert_rates = res['conversion_rates']
     currency = round(convert_rates['ILS'], 2)
-    print(currency)
     interval = (currency * usd_amount - (5 - difficulty), currency * usd_amount + (5 - difficulty))
-    print(interval)
     print(f'How much ILS (must be with agorot included) you will get from ${usd_amount} '
           f'if the currency rate is {currency}?')
     return interval
@@ -31,6 +29,3 @@ def get_guess_from_user(interval):
 
 def play(difficulty):
     return get_guess_from_user(get_money_interval(difficulty))
-
-
-print(play(5))
