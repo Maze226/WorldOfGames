@@ -3,13 +3,13 @@ import random
 import re
 
 
-def get_money_interval(d):
+def get_money_interval(difficulty):
     usd_amount = random.randint(1, 100)
     req = requests.get('https://v6.exchangerate-api.com/v6/615ee5a543815d1e4d0f04da/latest/USD')
     res = req.json()
     convert_rates = res['conversion_rates']
     currency = convert_rates['ILS']
-    interval = (currency * usd_amount - (5 - d), currency * usd_amount + (5 - d))
+    interval = (currency * usd_amount - (5 - difficulty), currency * usd_amount + (5 - difficulty))
     print(f'How much ILS you will get from ${usd_amount} if the currency rate is {currency}?')
     return interval
 
@@ -24,5 +24,5 @@ def get_guess_from_user(interval):
         return False
 
 
-def play(d):
-    return get_guess_from_user(get_money_interval(d))
+def play(difficulty):
+    return get_guess_from_user(get_money_interval(difficulty))
