@@ -16,9 +16,10 @@ def generate_sequence(difficulty):
 def get_list_from_user(difficulty):
     users_list = []
     for i in range(int(difficulty)):
-        enter_item = input(f'Please enter the {i + 1} item:')
-        while not re.match(r"^([1-9]|[1-9][0-9]|100|101)$", enter_item):
+        while True:
             enter_item = input(f'Please enter the {i + 1} item:')
+            if re.match(r"^([1-9]|[1-9][0-9]|100|101)$", enter_item):
+                break
         users_list.append(int(enter_item))
     return users_list
 

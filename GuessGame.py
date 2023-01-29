@@ -8,9 +8,10 @@ def generate_number(difficulty):
 
 
 def get_guess_from_user(difficulty):
-    guess = input(f'guess a number from 1 to {difficulty}:')
-    while re.match(r"^(?![1-5]$)|^$", guess):
+    while True:
         guess = input(f'guess a number from 1 to {difficulty}:')
+        if not re.match(r"^(?![1-5]$)|^$", guess):
+            break
     return int(guess)
 
 

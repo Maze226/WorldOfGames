@@ -15,9 +15,10 @@ def get_money_interval(difficulty):
 
 
 def get_guess_from_user(interval):
-    user_guess = input(f'What is your guess:')
-    while re.match("^[a-zA-Z0-9]*$", user_guess):
+    while True:
         user_guess = input(f'What is your guess:')
+        if not re.match("^[a-zA-Z0-9]*$", user_guess):
+            break
     if interval[0] <= float(user_guess) <= interval[1]:
         return True
     else:
