@@ -1,4 +1,5 @@
 import requests
+import math
 import random
 import re
 
@@ -8,9 +9,12 @@ def get_money_interval(difficulty):
     req = requests.get('https://v6.exchangerate-api.com/v6/615ee5a543815d1e4d0f04da/latest/USD')
     res = req.json()
     convert_rates = res['conversion_rates']
-    currency = convert_rates['ILS']
+    currency = round(convert_rates['ILS'], 2)
+    print(currency)
     interval = (currency * usd_amount - (5 - difficulty), currency * usd_amount + (5 - difficulty))
-    print(f'How much ILS you will get from ${usd_amount} if the currency rate is {currency}?')
+    print(interval)
+    print(f'How much ILS (must be with agorot included) you will get from ${usd_amount} '
+          f'if the currency rate is {currency}?')
     return interval
 
 
@@ -19,7 +23,7 @@ def get_guess_from_user(interval):
         user_guess = input(f'What is your guess:')
         if not re.match("^[a-zA-Z0-9]*$", user_guess):
             break
-    if interval[0] <= float(user_guess) <= interval[1]:
+    if math.trunc(interval[0]) <= float(user_guess) <= math.trunc(interval[1]):
         return True
     else:
         return False
@@ -27,3 +31,6 @@ def get_guess_from_user(interval):
 
 def play(difficulty):
     return get_guess_from_user(get_money_interval(difficulty))
+
+
+print(play(5))
