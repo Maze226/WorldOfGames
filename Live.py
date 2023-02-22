@@ -2,6 +2,8 @@ import re
 import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
+from Utils import screen_cleaner
+from Score import add_score
 
 
 def welcome(name):
@@ -24,14 +26,21 @@ def load_game():
         if not re.match(r"^(?![1-3]$)|^$", games):
             break
 
+    screen_cleaner()
+
     while True:
         difficulty = input('Please choose game difficulty from 1 to 5:')
         if not re.match(r"^(?![1-5]$)|^$", difficulty):
             break
 
+    screen_cleaner()
+
     if games == '1':
         print(MemoryGame.play(int(difficulty)))
+        add_score(difficulty)
     elif games == '2':
         print(GuessGame.play(int(difficulty)))
+        add_score(difficulty)
     elif games == '3':
         print(CurrencyRouletteGame.play(int(difficulty)))
+        add_score(difficulty)
