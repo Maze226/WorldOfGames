@@ -1,5 +1,6 @@
 import random
 import re
+from Score import add_score
 
 
 def generate_number(difficulty):
@@ -15,12 +16,12 @@ def get_guess_from_user(difficulty):
     return int(guess)
 
 
-def compare_results(guess, secret_number):
+def compare_results(guess, secret_number, difficulty):
     if guess == secret_number:
-        return True
+        return True, add_score(difficulty)
     else:
         return False
 
 
 def play(difficulty):
-    return compare_results(generate_number(difficulty), get_guess_from_user(difficulty))
+    return compare_results(generate_number(difficulty), get_guess_from_user(difficulty), difficulty)

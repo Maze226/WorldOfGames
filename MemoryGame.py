@@ -1,7 +1,7 @@
 import random
 import time
 import re
-
+from Score import add_score
 
 def generate_sequence(difficulty):
     generated_list = []
@@ -24,12 +24,12 @@ def get_list_from_user(difficulty):
     return users_list
 
 
-def is_list_equal(generated_list, users_list):
+def is_list_equal(generated_list, users_list, difficulty):
     if generated_list == users_list:
-        return True
+        return add_score(difficulty), True
     else:
         return False
 
 
 def play(difficulty):
-    return is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty))
+    return is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty), difficulty)

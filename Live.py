@@ -37,10 +37,7 @@ def load_game():
 
     if games == '1':
         print(MemoryGame.play(int(difficulty)))
-        add_score(int(difficulty))
     elif games == '2':
         print(GuessGame.play(int(difficulty)))
-        add_score(int(difficulty))
     elif games == '3':
         print(CurrencyRouletteGame.play(int(difficulty)))
-        add_score(int(difficulty))
