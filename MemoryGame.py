@@ -3,6 +3,7 @@ import time
 import re
 from Score import add_score
 
+
 def generate_sequence(difficulty):
     generated_list = []
     for i in range(int(difficulty)):

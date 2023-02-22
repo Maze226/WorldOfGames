@@ -12,7 +12,6 @@ def get_money_interval(difficulty):
     convert_rates = res['conversion_rates']
     currency = round(convert_rates['ILS'], 2)
     interval = (currency * usd_amount - (5 - difficulty), currency * usd_amount + (5 - difficulty))
-    print(interval)
     print(f'How much ILS (must be with agorot included) you will get from ${usd_amount} '
           f'if the currency rate is {currency}?')
     return interval
