@@ -3,7 +3,6 @@ import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
 from Utils import screen_cleaner
-from Score import add_score
 
 
 def welcome(name):
@@ -37,7 +36,18 @@ def load_game():
 
     if games == '1':
         print(MemoryGame.play(int(difficulty)))
+        play_again()
     elif games == '2':
         print(GuessGame.play(int(difficulty)))
     elif games == '3':
         print(CurrencyRouletteGame.play(int(difficulty)))
+
+
+def play_again():
+    while True:
+        restart = input(f'Do you want to play again? [Y/n]? ')
+        if not re.match(r"^(Y|y|'')$", restart):
+            load_game()
+        if not re.match(r"^(N|n)$", restart):
+            print('Have a nice day!')
+        break
