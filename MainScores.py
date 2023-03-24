@@ -1,8 +1,8 @@
-from flask import Flask
+from flask import Flask, render_template
 from Utils import SCORES_FILE_NAME
 from Utils import BAD_RETURN_CODE as ERROR
 from os.path import exists
-
+print(exists(SCORES_FILE_NAME))
 app = Flask('__main__')
 
 
@@ -12,28 +12,10 @@ def show_score():
     if exists(file):
         with open(file, 'r', encoding='utf8') as score_file:
             score = score_file.readline()
-            return f'''<html>
-                       <head>
-                           <title>Scores Game</title>
-                       </head>
-                       <body>
-                           <h1>The score is 
-                               <div id="score">{score}</div>
-                           </h1>
-                       </body>
-                       </html>''', 200
-    else:
-        return f'''<html> 
-                   <head>
-                       <title>Scores Game</title>
-                   </head>
-                   <body>
-                       <h1>
-                           <div id="score" style="color:red">{ERROR}</div>
-                       </h1>
-                   </body>
-                   </html>''', ERROR
+            return render_template('/my_score.html', game_score = score), 200
+    else: 
+        return render_template('error.html', error = ERROR), ERROR
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=5001)
