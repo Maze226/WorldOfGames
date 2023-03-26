@@ -4,6 +4,6 @@ services:
     build: .
     image: michaelgaragaty/wog-score
     ports:
-      - '5000:5000'
+      - '8777:5000'
     volumes:
       - ${PWD}/Scores.txt:/app/Scores.txt
