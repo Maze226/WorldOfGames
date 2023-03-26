@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from Utils import SCORES_FILE_NAME
 from Utils import BAD_RETURN_CODE as ERROR
 from os.path import exists
-print(exists(SCORES_FILE_NAME))
+
 app = Flask('__main__')
 
 
@@ -14,7 +14,7 @@ def show_score():
             score = score_file.readline()
             return render_template('/my_score.html', game_score=score), 200
     else: 
-        return render_template('error.html', error = ERROR), ERROR
+        return render_template('error.html', error=ERROR), ERROR
 
 
 if __name__ == '__main__':
