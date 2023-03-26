@@ -12,7 +12,7 @@ def show_score():
     if exists(file):
         with open(file, 'r', encoding='utf8') as score_file:
             score = score_file.readline()
-            return render_template('/my_score.html', game_score = score), 200
+            return render_template('/my_score.html', game_score=score), 200
     else: 
         return render_template('error.html', error = ERROR), ERROR
 
