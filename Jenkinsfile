@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git checkout 'https://github.com/michaelgaragaty/WorldOfGames'
+                git clone 'https://github.com/michaelgaragaty/WorldOfGames'
             }
         }
         stage('Build') {
