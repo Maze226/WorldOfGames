@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'michaelga'
-    }
+    agent any
 
     stages {
         stage('Checkout') {
