@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(
-                    branches: [[name: 'main']],
-                    userRemoteConfigs: [[url: 'https://github.com/michaelgaragaty/WorldOfGames.git']])
+                sh 'git clone https://github.com/michaelgaragaty/WorldOfGames.git'
+                sh 'cd WorldOfGames'
             }
         }
         stage('Build') {
