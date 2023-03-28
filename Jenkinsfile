@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'git clone https://github.com/michaelgaragaty/WorldOfGames.git'
-                sh 'cd WorldOfGames'
+                git 'https://github.com/michaelgaragaty/WorldOfGames.git'
             }
         }
         stage('Build') {
