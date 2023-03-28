@@ -20,7 +20,13 @@ pipeline {
             stage('Test') {
                 steps {
                     sh 'python3 tests/e2e.py'
+                }
+            }
+            stage('Finalize') {
+                steps {
                     sh 'echo 0 > Scores.txt'
+                    sh 'docker rm -f wog-score'
+                    sh 'docker-compose push'
                 }
             }
         }
