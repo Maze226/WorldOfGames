@@ -25,7 +25,7 @@ pipeline {
             stage('Finalize') {
                 steps {
                     sh 'echo 0 > Scores.txt'
-                    sh 'docker rm -f wog-score'
+                    sh 'docker rm -f wog-score-1'
                     sh 'docker-compose push'
                 }
             }
