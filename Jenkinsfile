@@ -8,6 +8,7 @@ pipeline {
             }
             stage('Build') {
                 steps {
+                    sh 'pip3 install -r requirements.txt'
                     sh 'echo $((0 + $RANDOM % 1000)) > Scores.txt'
                     sh 'docker-compose build'
                 }
