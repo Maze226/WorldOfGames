@@ -19,6 +19,7 @@ pipeline {
             stage('Test') {
                 steps {
                     sh 'python3 tests/e2e.py'
+                    sh 'echo 0 > Scores.txt'
                 }
             }
         }
