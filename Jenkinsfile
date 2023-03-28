@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'sudo docker build -t wog-score .'
+                sh 'docker-compose build'
             }
         }
     }
