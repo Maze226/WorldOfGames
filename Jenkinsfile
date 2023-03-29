@@ -9,7 +9,7 @@ pipeline {
             stage('Build') {
                 steps {
                     script{
-                        if isUnix(){
+                        if (isUnix()){
                             sh 'pip install --upgrade pip'
                             sh 'pip install -r requirements.txt'
                             sh 'echo $((0 + $RANDOM % 1000)) > Scores.txt'
@@ -27,7 +27,7 @@ pipeline {
             stage('Run') {
                 steps {
                     script {
-                        if isUnix(){
+                        if (isUnix()){
                             sh 'docker-compose up -d'
                         }
                         else {
@@ -39,7 +39,7 @@ pipeline {
             stage('Test') {
                 steps {
                     script {
-                        if isUnix(){
+                        if (isUnix()){
                             sh 'python3 tests/e2e.py'
                         }
                         else {
@@ -51,7 +51,7 @@ pipeline {
             stage('Finalize') {
                 steps {
                     script {
-                        if isUnix(){
+                        if (isUnix()){
                             sh 'echo 0 > Scores.txt'
                             sh 'docker-compose down'
                             sh 'docker-compose push'
