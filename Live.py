@@ -39,15 +39,19 @@ def load_game():
         play_again()
     elif games == '2':
         print(GuessGame.play(int(difficulty)))
+        play_again()
     elif games == '3':
         print(CurrencyRouletteGame.play(int(difficulty)))
+        play_again()
 
 
 def play_again():
     while True:
         restart = input(f'Do you want to play again? [Y/n]? ')
-        if not re.match(r"^(Y|y|'')$", restart):
+        if re.match(r"^(Y|y|Yes|yes|'')?$", restart):
+            screen_cleaner()
             load_game()
-        if not re.match(r"^(N|n)$", restart):
+        if re.match(r"^(N|n|No|no)?$", restart):
+            screen_cleaner()
             print('Have a nice day!')
         break
