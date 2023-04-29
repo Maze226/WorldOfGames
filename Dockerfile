@@ -1,6 +1,6 @@
-FROM python:alpine
+FROM python:alpine3.17
 RUN pip install flask
-COPY MainScores.py Score.py Utils.py Scores.txt ./app/
+COPY MainScores.py Score.py Utils.py ./app/
 COPY ./templates/* ./app/templates/
 WORKDIR /app
 VOLUME /app/Scores.txt
