@@ -1,3 +1,3 @@
 FROM mysql:latest
 ENV MYSQL_DATABASE scores
-COPY ./database/ /docker-entrypoint-initdb.d/
+COPY create_table.sql /docker-entrypoint-initdb.d/
