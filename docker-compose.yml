@@ -1,5 +1,13 @@
 version: '3'
 services:
+  scores-db:
+    build: ./database/.
+    image: michaelgaragaty/wog-scores-db
+    environment:
+      MYSQL_ROOT_PASSWORD: "wog-score-data"
+    ports:
+      - '3306:3306'
+
   wog-score:
     build: .
     image: michaelgaragaty/wog-score
@@ -7,3 +15,5 @@ services:
       - '8777:5000'
     volumes:
       - ${PWD}/Scores.txt:/app/Scores.txt
+    depends_on:
+      - scores-db
