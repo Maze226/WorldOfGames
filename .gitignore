@@ -1,0 +1,15 @@
+.DS_Store
+world_of_games/.DS_Store
+world_of_games/currencyroulettegame/.DS_Store
+world_of_games/currencyroulettegame/templates/.DS_Store
+world_of_games/gamepicker/.DS_Store
+world_of_games/memorygame/.DS_Store
+world_of_games/savegame/.DS_Store
+world_of_games/world_of_games/.DS_Store
+.idea
+world_of_games/world_of_games/__pycache__/
+world_of_games/currencyroulettegame/__pycache__/
+world_of_games/gamepicker/__pycache__/
+world_of_games/guessgame/__pycache__/
+world_of_games/memorygame/__pycache__/
+world_of_games/savegame/__pycache__/
