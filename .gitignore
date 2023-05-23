@@ -13,3 +13,4 @@ world_of_games/gamepicker/__pycache__/
 world_of_games/guessgame/__pycache__/
 world_of_games/memorygame/__pycache__/
 world_of_games/savegame/__pycache__/
+database/database_actions.py

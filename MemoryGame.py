@@ -25,12 +25,12 @@ def get_list_from_user(difficulty):
     return users_list
 
 
-def is_list_equal(generated_list, users_list, difficulty):
+def is_list_equal(generated_list, users_list, difficulty, name):
     if generated_list == users_list:
-        return add_score(difficulty), True
+        return add_score(difficulty, name), True
     else:
         return False
 
 
-def play(difficulty):
-    return is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty), difficulty)
+def play(difficulty, name):
+    return is_list_equal(generate_sequence(difficulty), get_list_from_user(difficulty), difficulty, name)

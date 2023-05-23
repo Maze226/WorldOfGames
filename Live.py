@@ -6,14 +6,10 @@ from Utils import screen_cleaner
 
 
 def welcome(name):
-    if name != '':
-        print(f'Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.')
-    else:
-        while name == '':
-            name = input("What is your name?")
+    print(f'Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.')
 
 
-def load_game():
+def load_game(name):
     while True:
         games = input("""Please choose a game to play:
         1. Memory Game - a sequence of numbers will appear for 1 second and you have to
@@ -35,22 +31,22 @@ def load_game():
     screen_cleaner()
 
     if games == '1':
-        print(MemoryGame.play(int(difficulty)))
-        play_again()
+        print(MemoryGame.play(int(difficulty), name))
+        play_again(name)
     elif games == '2':
-        print(GuessGame.play(int(difficulty)))
-        play_again()
+        print(GuessGame.play(int(difficulty), name))
+        play_again(name)
     elif games == '3':
-        print(CurrencyRouletteGame.play(int(difficulty)))
-        play_again()
+        print(CurrencyRouletteGame.play(int(difficulty), name))
+        play_again(name)
 
 
-def play_again():
+def play_again(name):
     while True:
         restart = input(f'Do you want to play again? [Y/n]? ')
         if re.match(r"^(Y|y|Yes|yes|'')?$", restart):
             screen_cleaner()
-            load_game()
+            load_game(name)
         if re.match(r"^(N|n|No|no)?$", restart):
             screen_cleaner()
             print('Have a nice day!')

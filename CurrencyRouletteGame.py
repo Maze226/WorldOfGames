@@ -17,17 +17,17 @@ def get_money_interval(difficulty):
     return interval
 
 
-def get_guess_from_user(interval, difficulty):
+def get_guess_from_user(interval, difficulty, name):
     while True:
         user_guess = input(f'What is your guess:')
         if not re.match("^[a-zA-Z0-9]*$", user_guess):
             break
     if math.trunc(interval[0]) <= float(user_guess) <= math.trunc(interval[1]):
-        add_score(difficulty)
+        add_score(difficulty, name)
         return True
     else:
         return False
 
 
-def play(difficulty):
-    return get_guess_from_user(get_money_interval(difficulty), difficulty)
+def play(difficulty, name):
+    return get_guess_from_user(get_money_interval(difficulty), difficulty, name)

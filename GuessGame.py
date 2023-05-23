@@ -16,12 +16,12 @@ def get_guess_from_user(difficulty):
     return int(guess)
 
 
-def compare_results(guess, secret_number, difficulty):
+def compare_results(guess, secret_number, difficulty, name):
     if guess == secret_number:
-        return True, add_score(difficulty)
+        return True, add_score(difficulty, name)
     else:
         return False
 
 
-def play(difficulty):
-    return compare_results(generate_number(difficulty), get_guess_from_user(difficulty), difficulty)
+def play(difficulty, name):
+    return compare_results(generate_number(difficulty), get_guess_from_user(difficulty), difficulty, name)
