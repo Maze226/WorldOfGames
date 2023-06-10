@@ -28,7 +28,9 @@ def get_user(name):
 
     myresult = db_cursor.fetchall()
 
-    return myresult
+    for u in myresult:
+        for i in u:
+            return i
 
 def get_all():
     db.connect()
